@@ -1,5 +1,7 @@
 provider "aws" {
   region = "${var.region}"
+  access_key = "${var.aws_access_key}"
+  secret_key = "${var.aws_secret_key}"
 }
 
 module "network" {
@@ -13,6 +15,7 @@ module "network" {
 
 module "ecs" {
   source = "modules/ecs"
+  environment = "${var.environment}"
   repo_owner = "${var.repo_owner}"
   repo_name = "${var.repo_name}"
   github_oauth_token = "${var.github_oauth_token}"
@@ -65,3 +68,7 @@ variable "github_oauth_token" {
 variable "instance_type" {
   
 }
+
+variable "aws_access_key" {}
+
+variable "aws_secret_key" {}

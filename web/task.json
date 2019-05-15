@@ -1,10 +1,10 @@
 {
-  "family": "flask-app",
+  "family": "flask-app1",
   "containerDefinitions": [{
-    "name": "flask-app",
+    "name": "flask-app1",
     "essential": true,
     "image": "%ECR_IMAGE%",
-    "memoryReservation": 2000,
+    "memoryReservation": 500,
     "portMappings": [
       {
         "protocol": "tcp",

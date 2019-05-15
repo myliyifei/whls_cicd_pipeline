@@ -1,16 +1,18 @@
+variable "environment" {}
+
 variable "instance_type" {
   type = "string"
-  default = "t2.medium"
+  default = "t2.micro"
 }
 
 variable "ami_image" {
   type = "string"
-  default = "ami-09568291a9d6c804c"
+  default = "ami-0054160a688deeb6a"
 }
 
 variable "ecs_key" {
   type = "string"
-  default = "demo"
+  default = "whls-key-pair-uswest2"
 }
 
 variable "github_oauth_token" {

@@ -95,7 +95,7 @@ resource "aws_ecr_repository" "ecr_flask_app" {
 }
 
 resource "aws_ecs_cluster" "ecs_cluster_name" {
-  name = "demo"
+  name = "whls"
 }
 
 
@@ -217,8 +217,8 @@ resource "aws_security_group" "elb_sg" {
   }
 }
 # Create a new load balancer
-resource "aws_elb" "flask-app-elb" {
-  name               = "flask-app"
+resource "aws_elb" "flask-app1-elb" {
+  name               = "flask-app1"
   subnets = ["${var.public_subnet_ids}"]
   listener {
     instance_port     = 5000
@@ -241,7 +241,7 @@ resource "aws_elb" "flask-app-elb" {
   connection_draining_timeout = 400
   security_groups = ["${aws_security_group.elb_sg.id}"]
   tags {
-    Name = "flask-app"
+    Name = "flask-app1"
   }
 }
 resource "aws_iam_role" "iam_code_build_role" {
@@ -341,16 +341,16 @@ resource "aws_iam_role_policy" "iam_code_build_policy" {
 POLICY
 }
 resource "aws_s3_bucket" "default" {
-  bucket = "demo-cicd-codepipeline-ecs"
+  bucket = "whls-cicd-codepipeline-ecs"
   acl    = "private"
 
   tags {
-    Name        = "Demo"
-    Environment = "Demo"
+    Name        = "whls-cicd-codepipeline-ecs"
+    Environment = "${var.environment}"
   }
 }
 resource "aws_codepipeline" "codepipeline" {
-  name     = "demo"
+  name     = "whls-cicd-codepipeline"
   role_arn = "${aws_iam_role.iam_codepipeline_role.arn}"
 
   artifact_store {

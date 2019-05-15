@@ -1,4 +1,4 @@
 output "flask_url" {
   description = "flask app url"
-  value       = "${aws_elb.flask-app-elb.dns_name}"
+  value       = "${aws_elb.flask-app1-elb.dns_name}"
 }
