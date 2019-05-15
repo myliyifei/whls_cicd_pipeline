@@ -90,8 +90,8 @@ resource "aws_autoscaling_group" "ecs_asg" {
 
 
 
-resource "aws_ecr_repository" "ecr_flask_app" {
-  name = "flask_app"
+resource "aws_ecr_repository" "ecr_flask_app1" {
+  name = "flask_app1"
 }
 
 resource "aws_ecs_cluster" "ecs_cluster_name" {
@@ -436,7 +436,7 @@ resource "aws_codebuild_project" "codebuild_docker_image" {
     }
     environment_variable {
       "name"  = "IMAGE_REPO_NAME"
-      "value" = "${aws_ecr_repository.ecr_flask_app.name}"
+      "value" = "${aws_ecr_repository.ecr_flask_app1.name}"
     }
   }
 
@@ -477,7 +477,7 @@ resource "aws_codebuild_project" "codebuild_deploy_on_ecs" {
     }
     environment_variable {
       "name"  = "IMAGE_NAME"
-      "value" = "flask_app"
+      "value" = "flask_app1"
     }
 
   }
