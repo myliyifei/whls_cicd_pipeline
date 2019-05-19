@@ -1,3 +1,5 @@
+aws_access_key = "AKIAVAUH5MT5G7KX4RMO"
+aws_secret_key = "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"
 vpc_cidr = "10.0.0.0/16"
 environment = "production"
 public_subnet_cidrs = ["10.0.0.0/24", "10.0.1.0/24"]
@@ -9,5 +11,5 @@ ecs_key = "whls-key-pair-uswest2"
 instance_type = "t2.micro"
 repo_owner = "whls"
 repo_name = "whls_cicd_pipeline"
-github_oauth_token = ""
+github_oauth_token = "e410515131c9097953da145be516aeeb39399015"
 
