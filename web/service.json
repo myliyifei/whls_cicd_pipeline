@@ -1,10 +1,10 @@
 {
-    "serviceName": "flask-app1",
-    "taskDefinition": "flask-app1",
+    "serviceName": "flask-app",
+    "taskDefinition": "flask-app",
     "loadBalancers": [
         {
-            "loadBalancerName": "flask-app1",
-            "containerName": "flask-app1",
+            "loadBalancerName": "flask-app",
+            "containerName": "flask-app",
             "containerPort": 5000
         }
     ],

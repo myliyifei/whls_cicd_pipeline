@@ -7,7 +7,7 @@ variable "instance_type" {
 
 variable "ami_image" {
   type = "string"
-  default = "ami-0054160a688deeb6a"
+  default = "ami-09568291a9d6c804c"
 }
 
 variable "ecs_key" {

@@ -90,8 +90,8 @@ resource "aws_autoscaling_group" "ecs_asg" {
 
 
 
-resource "aws_ecr_repository" "ecr_flask_app1" {
-  name = "flask_app1"
+resource "aws_ecr_repository" "ecr_flask_app" {
+  name = "flask_app"
 }
 
 resource "aws_ecs_cluster" "ecs_cluster_name" {
@@ -217,8 +217,8 @@ resource "aws_security_group" "elb_sg" {
   }
 }
 # Create a new load balancer
-resource "aws_elb" "flask-app1-elb" {
-  name               = "flask-app1"
+resource "aws_elb" "flask-app-elb" {
+  name               = "flask-app"
   subnets = ["${var.public_subnet_ids}"]
   listener {
     instance_port     = 5000
@@ -241,7 +241,7 @@ resource "aws_elb" "flask-app1-elb" {
   connection_draining_timeout = 400
   security_groups = ["${aws_security_group.elb_sg.id}"]
   tags {
-    Name = "flask-app1"
+    Name = "flask-app"
   }
 }
 resource "aws_iam_role" "iam_code_build_role" {
@@ -436,7 +436,7 @@ resource "aws_codebuild_project" "codebuild_docker_image" {
     }
     environment_variable {
       "name"  = "IMAGE_REPO_NAME"
-      "value" = "${aws_ecr_repository.ecr_flask_app1.name}"
+      "value" = "${aws_ecr_repository.ecr_flask_app.name}"
     }
   }
 
@@ -477,7 +477,7 @@ resource "aws_codebuild_project" "codebuild_deploy_on_ecs" {
     }
     environment_variable {
       "name"  = "IMAGE_NAME"
-      "value" = "flask_app1"
+      "value" = "flask_app"
     }
 
   }

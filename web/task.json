@@ -1,7 +1,7 @@
 {
-  "family": "flask-app1",
+  "family": "flask-app",
   "containerDefinitions": [{
-    "name": "flask-app1",
+    "name": "flask-app",
     "essential": true,
     "image": "%ECR_IMAGE%",
     "memoryReservation": 500,
