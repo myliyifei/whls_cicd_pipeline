@@ -29,15 +29,15 @@
 
 ```
 web/
-├── app.py				#应用源代码
-├── buildspec.yml			#构建规范
+├── app.py			#应用源代码
+├── buildspec.yml		#构建规范
 ├── deploy.sh			#部署脚本
 ├── docker-compose.yml		#用于单元测试		
 ├── Dockerfile			#用于构建镜像
 ├── requirements.txt		#用于构建镜像
-├── service.json			#ECS服务定义
+├── service.json		#ECS服务定义
 ├── task.json			#ECS任务定义
-└── test_basic.py			#单元测试脚本
+└── test_basic.py		#单元测试脚本
 
 ```
 
