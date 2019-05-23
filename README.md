@@ -26,6 +26,8 @@
 * /terraform
 ### 演示源代码
 * /web/
+
+```
 web/
 ├── app.py				#应用源代码
 ├── buildspec.yml			#构建规范
@@ -36,6 +38,8 @@ web/
 ├── service.json			#ECS服务定义
 ├── task.json			#ECS任务定义
 └── test_basic.py			#单元测试脚本
+
+```
 
 ## Terraform variables.tfvars 文件模板
 For example: I want to create a VPC with CIDR ( 10.0.0.0/16 ), two public subnet and two private subnet.
@@ -66,9 +70,13 @@ terraform apply -var-file=variables.tfvars
 ```
 
 ## 输出内容
+
+```
 Apply complete! Resources: 36 added, 0 changed, 0 destroyed.
 Outputs:
 url = flask-app-*********.us-west-2.elb.amazonaws.com
 通过url访问应用.
+
+```
 
 
