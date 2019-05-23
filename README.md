@@ -1,6 +1,6 @@
 # whls_cicd_pipeline
 
-#AWS上CI/CD Pipeline的搭建
+# AWS上CI/CD Pipeline的搭建
 
 ------
 
