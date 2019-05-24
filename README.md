@@ -32,7 +32,7 @@ web/
 ├── app.py			#应用源代码
 ├── buildspec.yml		#构建规范
 ├── deploy.sh			#部署脚本
-├── docker-compose.yml		#用于单元测试		
+├── docker-compose.yml		#用于应用部署
 ├── Dockerfile			#用于构建镜像
 ├── requirements.txt		#用于构建镜像
 ├── service.json		#ECS服务定义
