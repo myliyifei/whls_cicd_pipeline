@@ -442,7 +442,7 @@ resource "aws_codebuild_project" "codebuild_docker_image" {
 
   source {
     type            = "CODEPIPELINE"
-    buildspec       = "web/buildspec.yml"
+    buildspec       = "pipeline/buildspec.yml"
   }
 
 }
@@ -494,7 +494,7 @@ phases:
       - apt-get install jq -y
   build:
     commands:
-      - cd web
+      - cd pipeline
       - echo "Create/update on the ECS cluster."
       - bash deploy.sh
 EOF
