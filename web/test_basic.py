@@ -10,7 +10,7 @@ class BasicTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
     def test_home_data(self):
         response = self.app.get('/')
-        self.assertEqual(response.data, b"Hello World")
+        self.assertEqual(response.data, b"This is cicd pipeline test")
 
  
 if __name__ == "__main__":
