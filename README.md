@@ -11,7 +11,7 @@
 ## 架构说明
 ![](whls_cicd_pipeline.png)
 
-1.	整套环境通过Terraform自动化部署，只需要在Terraform variables.tfvars文件中填入AWS access key, AWS secret key, github repo信息、github_oauth_token等个人信息及其他自定义资源信息即可创建出NAT Gateway, Network, VPC, Subnet, ECR, ECS cluster, CodeBuild, CodePipeline, IAM roles等相关基础架构资源与服务；
+1.	整套环境通过Terraform自动化部署，只需要在Terraform variables.tfvars文件中填入github repo信息、github_oauth_token等repo信息及其他自定义资源信息即可创建出NAT Gateway, Network, VPC, Subnet, ECR, ECS cluster, CodeBuild, CodePipeline, IAM roles等相关基础架构资源与服务；
 
 2.	开发者在Git仓库中commit代码，当源代码有任何改变时将触发CodePipeline自动拉取源代码并打包存储在S3中；
 
@@ -30,23 +30,29 @@
 ```
 web/
 ├── app.py			#应用源代码
-├── buildspec.yml		#构建规范
-├── deploy.sh			#部署脚本
 ├── docker-compose.yml		#用于应用部署
 ├── Dockerfile			#用于构建镜像
 ├── requirements.txt		#用于构建镜像
-├── service.json		#ECS服务定义
-├── task.json			#ECS任务定义
 └── test_basic.py		#单元测试脚本
 
 ```
+### 构建规范
+* /pipeline/
 
+```
+
+pipeline/
+├── buildspec.yml		#构建规范
+├── deploy.sh			#部署脚本
+├── service.json		#ECS服务定义
+└── task.json			#ECS任务定义
+
+```
 ## Terraform variables.tfvars 文件模板
 For example: I want to create a VPC with CIDR ( 10.0.0.0/16 ), two public subnet and two private subnet.
 
 ```
-aws_access_key = "Your AWS IAM user access key"
-aws_secret_key = "Your AWS IAM user secret key"
+
 vpc_cidr = "10.0.0.0/16"
 environment = "production"
 public_subnet_cidrs = ["10.0.0.0/24", "10.0.1.0/24"]
