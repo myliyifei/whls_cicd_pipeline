@@ -59,12 +59,12 @@ public_subnet_cidrs = ["10.0.0.0/24", "10.0.1.0/24"]
 private_subnet_cidrs = ["10.0.50.0/24", "10.0.51.0/24"]
 availibility_zones = ["us-west-2a", "us-west-2b"]
 region = "us-west-2"
-ami_image = "ami-043c4e6bff652b99e"
-ecs_key = "Your key pair"
+ami_image = "ami-043c4e6bff652b99e" # Amazon ECS-optimized Amazon Linux 2 AMI 
+ecs_key = "Your EC2 key pair name"
 instance_type = "t2.micro"
-repo_owner = "whls"
-repo_name = "whls_cicd_pipeline"
-github_oauth_token = "Your github_oauth_token"
+repo_owner = "whls" #Your github user name
+repo_name = "whls_cicd_pipeline"  #Your Repository name
+github_oauth_token = "Your Personal access token"  
 
 ```
 
@@ -74,6 +74,7 @@ export AWS_ACCESS_KEY_ID="anaccesskey"
 export AWS_SECRET_ACCESS_KEY="asecretkey"
 ```
 ```
+cd terraform
 terraform init
 terraform plan -var-file=variables.tfvars
 terraform apply -var-file=variables.tfvars
