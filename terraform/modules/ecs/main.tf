@@ -341,11 +341,11 @@ resource "aws_iam_role_policy" "iam_code_build_policy" {
 POLICY
 }
 resource "aws_s3_bucket" "default" {
-  bucket = "whls-cicd-codepipeline-ecs"
+  bucket = "whls-cicd-codepipeline-demo"
   acl    = "private"
 
   tags {
-    Name        = "whls-cicd-codepipeline-ecs"
+    Name        = "whls-cicd-codepipeline-demo"
     Environment = "${var.environment}"
   }
 }
