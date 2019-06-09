@@ -2,12 +2,12 @@ variable "environment" {}
 
 variable "instance_type" {
   type = "string"
-  default = "t2.micro"
+  default = "t2.medium"
 }
 
 variable "ami_image" {
   type = "string"
-  default = "ami-043c4e6bff652b99e"
+  default = "ami-09568291a9d6c804c"
 }
 
 variable "ecs_key" {

@@ -222,16 +222,16 @@ resource "aws_elb" "flask-app-elb" {
   subnets = ["${var.public_subnet_ids}"]
   listener {
     instance_port     = 5000
-    instance_protocol = "http"
+    instance_protocol = "tcp"
     lb_port           = 80
-    lb_protocol       = "http"
+    lb_protocol       = "tcp"
   }
 
   health_check {
     healthy_threshold   = 2
     unhealthy_threshold = 2
     timeout             = 3
-    target              = "HTTP:5000/"
+    target              = "TCP:5000"
     interval            = 30
   }
 
