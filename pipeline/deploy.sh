@@ -23,8 +23,8 @@ if [[ ${result} == "\"MISSING\"" ]]; then
                            --service-name ${SERVICE_NAME} \
                            --cli-input-json file://service.json
 fi
-OLD_TASK_ID=$(aws ecs list-tasks --cluster ${ECS_CLUSTER} --desired-status RUNNING --family ${TASK_FAMILY} | egrep "task" | tr "/" " " | tr "[" " " |  awk '{print $2}' | sed 's/"$//')
-echo $OLD_TASK_ID
+#OLD_TASK_ID=$(aws ecs list-tasks --cluster ${ECS_CLUSTER} --desired-status RUNNING --family ${TASK_FAMILY} | egrep "task" | tr "/" " " | tr "[" " " |  awk '{print $2}' | sed 's/"$//')
+#echo $OLD_TASK_ID
 TASK_REVISION=$(aws ecs describe-task-definition --task-definition ${TASK_FAMILY} | jq '.taskDefinition.revision')
 echo $TASK_REVISION
 DESIRED_COUNT=$(aws ecs describe-services --service ${SERVICE_NAME} --cluster ${ECS_CLUSTER} | jq '.services[0]|.desiredCount')
