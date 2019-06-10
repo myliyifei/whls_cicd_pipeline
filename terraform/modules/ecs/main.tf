@@ -308,6 +308,8 @@ resource "aws_iam_role_policy" "iam_code_build_policy" {
     {
       "Action": [
           "ecs:RegisterTaskDefinition",
+	  "ecs:DeleteService",
+          "ecs:DeregisterTaskDefinition",
           "ecs:DescribeTaskDefinition",
           "ecs:DescribeServices",
           "ecs:CreateService",
