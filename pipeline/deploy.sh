@@ -24,6 +24,7 @@ aws ecs update-service --cluster ${ECS_CLUSTER} \
 aws ecs delete-service --cluster ${ECS_CLUSTER} \
 		       --service ${SERVICE_NAME}
 fi
+sleep 60
 aws ecs register-task-definition --family ${TASK_FAMILY} --cli-input-json file://${ECS_TASK}
 aws ecs create-service --cluster ${ECS_CLUSTER} \
                        --service-name ${SERVICE_NAME} \
